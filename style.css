@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
+    transition: background-color 0.5s ease;
 }
 
 .color-switcher-text-container {
@@ -31,7 +32,7 @@
 }
 
 .color-switcher-text-color {
-    color: #009B72;
+    color: #AD636C;
 }
 
 .color-switcher-button {

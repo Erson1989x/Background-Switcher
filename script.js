@@ -13,18 +13,18 @@ const nextSwitcherButton = document.querySelector(`.color-switcher-next`);
 let index = 0;
 let clickCount = 0;
 
-const switchColor = () => {
-    index++;
 
-    if (index === 5) {
-        index = 0;
-    }
-
-    colorSwitcherContainer.style.backgroundColor = listOfColors[index];
-    currentColor.innerText = listOfColors[index];
-    displayClick();
-    hexSwitch();
+const getRandomColor = () => {
+    return listOfColors[Math.floor(Math.random() * listOfColors.length)];
 };
+
+const switchColor = () => {
+    const randomColor = getRandomColor();
+    index = listOfColors.indexOf(randomColor);
+    updateColor(randomColor);
+    displayClick();
+};
+
 
 const displayClick = () => {
     clickCount++;
@@ -36,6 +36,12 @@ const resButton = () => {
     currentColor.innerText = listOfColors[0];
     colorSwitcherContainer.style.backgroundColor = listOfColors[0];
 
+};
+
+const updateColor = (color) => {
+    colorSwitcherContainer.style.backgroundColor = color;
+    currentColor.innerText = color;
+    currentColor.style.color = color;
 };
 
 const hexSwitch = () => {
